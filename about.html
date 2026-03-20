@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О продукте — Baby Marine</title>
+  <meta name="description" content="Пищевая ценность, сертификаты, условия хранения и доставка Baby Marine.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500;1,600&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange: #F47B20;
+      --orange-hover: #E06A10;
+      --orange-light: #FFF3E0;
+      --orange-glow: rgba(244, 123, 32, 0.12);
+      --green: #2E7D32;
+      --green-hover: #256B28;
+      --green-light: #E8F5E9;
+      --green-dark: #1B5E20;
+      --cream: #FFF8F0;
+      --warm-white: #FFFDF8;
+      --text: #2C2C2C;
+      --text-light: #555;
+      --text-muted: #888;
+      --display: 'Cormorant Garamond', Georgia, serif;
+      --body: 'Nunito', sans-serif;
+      --radius: 20px;
+      --radius-sm: 12px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-hover: 0 12px 40px rgba(0,0,0,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--body);
+      color: var(--text);
+      background: var(--warm-white);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.4s ease;
+    }
+    .nav.scrolled {
+      background: rgba(255, 253, 248, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      padding: 12px 40px;
+    }
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--orange); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--orange);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--orange); }
+    .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      background: var(--green);
+      color: #fff !important;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--green-hover); transform: translateY(-1px); }
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .mobile-toggle span {
+      width: 24px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+    }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      position: relative;
+      padding: 160px 40px 120px;
+      overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .page-hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .page-hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg, rgba(255,248,240,0.92) 0%, rgba(255,243,224,0.88) 40%, rgba(232,245,233,0.85) 100%);
+    }
+    .page-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .page-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(46, 125, 50, 0.1);
+      color: var(--green);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .page-hero h1 {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .page-hero p {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    .page-hero-photo img {
+      width: 100%;
+      border-radius: 20px 60px 20px 60px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      box-shadow: 0 16px 50px rgba(0,0,0,0.1);
+    }
+    .page-hero-wave {
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      z-index: 3;
+    }
+    .page-hero-wave svg { display: block; width: 100%; height: auto; }
+
+    /* ─── SECTIONS ─── */
+    .section { padding: clamp(60px, 8vw, 120px) clamp(20px, 5vw, 80px); }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+    .section-label::before { content: ''; width: 24px; height: 2px; background: var(--orange); }
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      max-width: 600px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+    .wave-divider { display: block; width: 100%; height: auto; margin: -1px 0; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: var(--body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-whatsapp { background: #25D366; color: #fff; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3); }
+    .btn-whatsapp:hover { background: #20BD5A; transform: translateY(-2px); }
+    .btn-instagram {
+      background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737); color: #fff;
+      box-shadow: 0 4px 20px rgba(131, 58, 180, 0.3);
+    }
+    .btn-instagram:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(131, 58, 180, 0.4); }
+
+    /* ─── NUTRITION ─── */
+    .nutrition-section { background: #fff; }
+    .nutrition-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .nutrition-info h3 {
+      font-family: var(--display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .nutrition-info p { color: var(--text-light); margin-bottom: 24px; line-height: 1.8; }
+    .nutrition-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .nutrition-photo img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .nutrition-highlight {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .nutrition-stat {
+      background: var(--cream);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      text-align: center;
+    }
+    .nutrition-stat-value {
+      font-family: var(--display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .nutrition-stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+    .table-wrap {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: var(--green); color: #fff; }
+    th { padding: 14px 24px; text-align: left; font-weight: 600; font-size: 0.9rem; }
+    td { padding: 14px 24px; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--orange-light); }
+    .nutrient-name { font-weight: 600; }
+    .nutrient-value { color: var(--orange); font-weight: 600; }
+
+    /* ─── CERTIFICATES ─── */
+    .certificates-section { background: var(--cream); }
+    .cert-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .cert-image img {
+      width: 100%;
+      border-radius: var(--radius);
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+    .cert-grid { display: flex; flex-direction: column; gap: 20px; }
+    .cert-card {
+      background: #fff;
+      border-radius: var(--radius-sm);
+      padding: 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: all 0.3s ease;
+    }
+    .cert-card:hover { transform: translateX(6px); box-shadow: var(--shadow); }
+    .cert-icon {
+      width: 60px; height: 60px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: var(--display);
+      flex-shrink: 0;
+    }
+    .cert-icon-eac { background: var(--green-light); color: var(--green); }
+    .cert-icon-halal { background: var(--orange-light); color: var(--orange); }
+    .cert-icon-iso { background: #E3F2FD; color: #1565C0; }
+    .cert-name {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .cert-desc { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; }
+
+    /* ─── PRODUCTION ─── */
+    .production-section { background: #fff; }
+    .production-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .production-card {
+      padding: 32px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    .production-card:hover { box-shadow: var(--shadow); }
+    .production-card-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+    }
+    .production-card:nth-child(1) .production-card-icon { background: var(--green-light); }
+    .production-card:nth-child(2) .production-card-icon { background: var(--orange-light); }
+    .production-card:nth-child(3) .production-card-icon { background: #E3F2FD; }
+    .production-card:nth-child(4) .production-card-icon { background: #FFF3E0; }
+    .production-card h3 {
+      font-family: var(--display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .production-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+    .production-card ul { list-style: none; margin-top: 10px; }
+    .production-card li {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+    .production-card li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 13px;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+    .production-photo {
+      grid-column: span 2;
+      border-radius: var(--radius);
+      overflow: hidden;
+      max-height: 320px;
+    }
+    .production-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    /* ─── DELIVERY ─── */
+    .delivery-section { background: var(--green-light); }
+    .delivery-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .delivery-content h3 {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .delivery-content p { color: var(--text-light); line-height: 1.8; margin-bottom: 16px; }
+    .delivery-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .delivery-image img {
+      width: 100%;
+      border-radius: var(--radius);
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+
+    /* ─── CONTACT ─── */
+    .contact-section {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+    }
+    .contact-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .contact-bg img { width: 100%; height: 100%; object-fit: cover; }
+    .contact-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(27, 94, 32, 0.9) 0%, rgba(46, 125, 50, 0.85) 50%, rgba(56, 142, 60, 0.88) 100%);
+    }
+    .contact-section .section-inner { position: relative; z-index: 2; }
+    .contact-title {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .contact-desc {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      max-width: 500px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 700px;
+      margin: 0 auto 32px;
+    }
+    .contact-item {
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      padding: 24px 16px;
+      backdrop-filter: blur(10px);
+      transition: background 0.3s;
+    }
+    .contact-item:hover { background: rgba(255,255,255,0.15); }
+    .contact-item-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .contact-item-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.6; margin-bottom: 6px; }
+    .contact-item-value { font-weight: 600; font-size: 0.95rem; }
+    .contact-item-value a { color: #fff; text-decoration: none; }
+    .contact-item-value a:hover { text-decoration: underline; }
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1a2e1a;
+      color: rgba(255,255,255,0.7);
+      padding: 40px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo { font-family: var(--display); font-size: 1.3rem; font-weight: 700; color: #fff; }
+    .footer-logo span { color: var(--orange); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy {
+      font-size: 0.8rem; opacity: 0.5; width: 100%;
+      margin-top: 24px; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr; }
+      .page-hero-photo { max-width: 500px; }
+      .nutrition-layout { grid-template-columns: 1fr; }
+      .cert-layout { grid-template-columns: 1fr; }
+      .delivery-layout { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav { padding: 14px 20px; }
+      .nav.scrolled { padding: 10px 20px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(255, 253, 248, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 24px 20px;
+        gap: 20px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      }
+      .mobile-toggle { display: flex; }
+      .page-hero { padding: 120px 20px 80px; }
+      .section { padding: 48px 20px; }
+      .production-grid { grid-template-columns: 1fr; }
+      .production-photo { grid-column: auto; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .table-wrap { overflow-x: auto; }
+      table { min-width: 420px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">Baby<span>Marine</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="#nutrition">Пищевая ценность</a></li>
+      <li><a href="#certificates">Сертификаты</a></li>
+      <li><a href="#delivery">Доставка</a></li>
+      <li><a href="about.html" class="active">О продукте</a></li>
+      <li><a href="#contact" class="nav-cta">Связаться</a></li>
+    </ul>
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1600&h=700&fit=crop&auto=format&q=80" alt="" fetchpriority="high">
+      <div class="page-hero-bg-overlay"></div>
+    </div>
+    <div class="page-hero-inner">
+      <div>
+        <div class="page-hero-badge">🌊 Baby Marine</div>
+        <h1>О продукте</h1>
+        <p>Подробная информация о составе, пищевой ценности, сертификации и условиях хранения Baby Marine. Натуральный продукт питания для здорового роста вашего ребёнка.</p>
+      </div>
+      <div class="page-hero-photo">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=600&h=450&fit=crop&auto=format&q=80" alt="Здоровое питание для детей">
+      </div>
+    </div>
+    <div class="page-hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,50 C240,80 480,20 720,45 C960,70 1200,25 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- NUTRITION -->
+  <section class="section nutrition-section" id="nutrition">
+    <div class="section-inner">
+      <div class="section-label fade-up">Нутриенты</div>
+      <h2 class="section-title fade-up">Пищевая ценность</h2>
+      <p class="section-subtitle fade-up">Содержание питательных веществ на 100 мл продукта</p>
+      <div class="nutrition-layout">
+        <div class="nutrition-info fade-up">
+          <div class="nutrition-photo">
+            <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&h=340&fit=crop&auto=format&q=80" alt="Здоровое питание" loading="lazy">
+          </div>
+          <h3>Сбалансированный состав</h3>
+          <p>Baby Marine содержит оптимальное соотношение макро- и микронутриентов, подобранное специально для растущего организма. Каждый компонент усиливает действие другого.</p>
+          <div class="nutrition-highlight">
+            <div class="nutrition-stat">
+              <div class="nutrition-stat-value">42</div>
+              <div class="nutrition-stat-label">ккал / 100 мл</div>
+            </div>
+            <div class="nutrition-stat">
+              <div class="nutrition-stat-value">100</div>
+              <div class="nutrition-stat-label">мкг йода</div>
+            </div>
+            <div class="nutrition-stat">
+              <div class="nutrition-stat-value">0.8</div>
+              <div class="nutrition-stat-label">г белка</div>
+            </div>
+            <div class="nutrition-stat">
+              <div class="nutrition-stat-value">50</div>
+              <div class="nutrition-stat-label">мг омега-3</div>
+            </div>
+          </div>
+        </div>
+        <div class="table-wrap fade-up fade-up-delay-2">
+          <table>
+            <thead>
+              <tr>
+                <th>Показатель</th>
+                <th>На 100 мл</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="nutrient-name">Энергетическая ценность</td><td class="nutrient-value">42 ккал</td></tr>
+              <tr><td class="nutrient-name">Белки</td><td class="nutrient-value">0.8 г</td></tr>
+              <tr><td class="nutrient-name">Жиры</td><td class="nutrient-value">0.2 г</td></tr>
+              <tr><td class="nutrient-name">Углеводы</td><td class="nutrient-value">9.5 г</td></tr>
+              <tr><td class="nutrient-name">Пищевые волокна</td><td class="nutrient-value">1.2 г</td></tr>
+              <tr><td class="nutrient-name">Йод</td><td class="nutrient-value">100 мкг</td></tr>
+              <tr><td class="nutrient-name">Витамин D</td><td class="nutrient-value">2.5 мкг</td></tr>
+              <tr><td class="nutrient-name">Витамин B2</td><td class="nutrient-value">0.2 мг</td></tr>
+              <tr><td class="nutrient-name">Витамин B6</td><td class="nutrient-value">0.3 мг</td></tr>
+              <tr><td class="nutrient-name">Фолиевая кислота (B9)</td><td class="nutrient-value">80 мкг</td></tr>
+              <tr><td class="nutrient-name">Витамин B12</td><td class="nutrient-value">0.5 мкг</td></tr>
+              <tr><td class="nutrient-name">Омега-3</td><td class="nutrient-value">50 мг</td></tr>
+              <tr><td class="nutrient-name">L-аргинин</td><td class="nutrient-value">30 мг</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,25 C360,55 720,5 1080,30 C1260,42 1380,18 1440,28 L1440,60 L0,60 Z" fill="#FFF8F0"/>
+  </svg>
+
+  <!-- CERTIFICATES -->
+  <section class="section certificates-section" id="certificates">
+    <div class="section-inner">
+      <div class="section-label fade-up">Качество</div>
+      <h2 class="section-title fade-up">Сертификаты</h2>
+      <p class="section-subtitle fade-up">Продукт прошёл все необходимые проверки и соответствует международным стандартам</p>
+      <div class="cert-layout">
+        <div class="cert-image fade-up">
+          <img src="https://images.unsplash.com/photo-1581093458791-9d42e3c7e117?w=600&h=450&fit=crop&auto=format&q=80" alt="Лабораторный контроль качества" loading="lazy">
+        </div>
+        <div class="cert-grid">
+          <div class="cert-card fade-up fade-up-delay-1">
+            <div class="cert-icon cert-icon-eac">EAC</div>
+            <div>
+              <div class="cert-name">EAC</div>
+              <div class="cert-desc">Сертификат соответствия техническим регламентам Евразийского экономического союза</div>
+            </div>
+          </div>
+          <div class="cert-card fade-up fade-up-delay-2">
+            <div class="cert-icon cert-icon-halal">☪</div>
+            <div>
+              <div class="cert-name">Halal</div>
+              <div class="cert-desc">Продукт соответствует стандартам халяльной продукции и прошёл сертификацию Halal</div>
+            </div>
+          </div>
+          <div class="cert-card fade-up fade-up-delay-3">
+            <div class="cert-icon cert-icon-iso">ISO</div>
+            <div>
+              <div class="cert-name">ISO 22000</div>
+              <div class="cert-desc">Производство соответствует международному стандарту безопасности пищевой продукции</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,35 C480,5 960,55 1440,25 L1440,60 L0,60 Z" fill="#ffffff"/>
+  </svg>
+
+  <!-- PRODUCTION & STORAGE -->
+  <section class="section production-section" id="production">
+    <div class="section-inner">
+      <div class="section-label fade-up">Производство</div>
+      <h2 class="section-title fade-up">Хранение и технология</h2>
+      <p class="section-subtitle fade-up">Современные технологии сохраняют все полезные свойства натуральных ингредиентов</p>
+      <div class="production-grid">
+        <div class="production-card fade-up fade-up-delay-1">
+          <div class="production-card-icon">❄️</div>
+          <h3>Технология сублимации</h3>
+          <p>Сублимационная сушка (лиофилизация) позволяет максимально сохранить витамины, минералы и биологически активные вещества без применения высоких температур.</p>
+        </div>
+        <div class="production-card fade-up fade-up-delay-2">
+          <div class="production-card-icon">🌿</div>
+          <h3>Без химии</h3>
+          <p>В производстве не используются химические добавки, искусственные красители, ароматизаторы и консерванты. Только натуральные компоненты.</p>
+        </div>
+        <div class="production-card fade-up fade-up-delay-3">
+          <div class="production-card-icon">🏪</div>
+          <h3>Условия хранения</h3>
+          <ul>
+            <li>Хранить в сухом, защищённом от света месте</li>
+            <li>Температура хранения: от +2°C до +25°C</li>
+            <li>После вскрытия хранить в холодильнике</li>
+            <li>Срок годности — 12 месяцев</li>
+          </ul>
+        </div>
+        <div class="production-card fade-up fade-up-delay-4">
+          <div class="production-card-icon">✅</div>
+          <h3>Контроль качества</h3>
+          <p>Каждая партия проходит лабораторный контроль на содержание микроэлементов, микробиологическую чистоту и безопасность.</p>
+        </div>
+        <div class="production-photo fade-up">
+          <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=1200&h=400&fit=crop&auto=format&q=80" alt="Натуральное производство" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C360,60 720,0 1080,35 C1260,50 1380,20 1440,30 L1440,60 L0,60 Z" fill="#E8F5E9"/>
+  </svg>
+
+  <!-- DELIVERY -->
+  <section class="section delivery-section" id="delivery">
+    <div class="section-inner">
+      <div class="section-label fade-up">Доставка</div>
+      <h2 class="section-title fade-up">Бесплатная доставка по Казахстану</h2>
+      <div class="delivery-layout fade-up">
+        <div class="delivery-content">
+          <h3>Доставляем по всей стране</h3>
+          <p>Мы доставляем Baby Marine по всему Казахстану бесплатно. Оформите заказ через WhatsApp или Instagram, и мы отправим продукт в кратчайшие сроки.</p>
+          <p>Доставка осуществляется курьерскими службами с соблюдением всех условий транспортировки пищевых продуктов.</p>
+          <div class="delivery-badge">🚚 Бесплатно по всему Казахстану</div>
+        </div>
+        <div class="delivery-image">
+          <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&h=450&fit=crop&auto=format&q=80" alt="Доставка на дом" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAVE -->
+  <svg class="wave-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,25 C480,55 960,5 1440,35 L1440,60 L0,60 Z" fill="#1B5E20"/>
+  </svg>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="contact-bg">
+      <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=1600&h=600&fit=crop&auto=format&q=80" alt="" loading="lazy">
+      <div class="contact-bg-overlay"></div>
+    </div>
+    <div class="section-inner">
+      <h2 class="contact-title fade-up">Свяжитесь с нами</h2>
+      <p class="contact-desc fade-up">Мы всегда готовы ответить на ваши вопросы и помочь с заказом</p>
+      <div class="contact-grid fade-up">
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-label">Телефон</div>
+          <div class="contact-item-value"><a href="tel:+77056037147">+7 705 603 7147</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">💬</div>
+          <div class="contact-item-label">WhatsApp</div>
+          <div class="contact-item-value"><a href="https://wa.me/77056037147" target="_blank" rel="noopener">+7 705 603 7147</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📸</div>
+          <div class="contact-item-label">Instagram</div>
+          <div class="contact-item-value"><a href="https://instagram.com/babymarine_kz" target="_blank" rel="noopener">@babymarine_kz</a></div>
+        </div>
+      </div>
+      <div class="contact-buttons fade-up">
+        <a href="https://wa.me/77056037147" class="btn btn-whatsapp" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        <a href="https://instagram.com/babymarine_kz" class="btn btn-instagram" target="_blank" rel="noopener">Подписаться в Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Baby<span>Marine</span></div>
+      <ul class="footer-links">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О продукте</a></li>
+        <li><a href="https://wa.me/77056037147" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://instagram.com/babymarine_kz" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+      <div class="footer-copy">© 2026 Baby Marine. Натуральный продукт питания. Не является лекарственным средством.</div>
+    </div>
+  </footer>
+
+  <script>
+    var nav = document.getElementById('nav');
+    var toggle = document.getElementById('mobileToggle');
+    var links = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+    links.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { links.classList.remove('open'); });
+    });
+
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+  </script>
+
+</body>
+</html>
